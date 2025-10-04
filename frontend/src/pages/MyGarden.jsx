@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
-import { Plus, Search, Filter, MoreVertical, Droplets, Sun, Thermometer, TrendingUp, Calendar } from 'lucide-react';
+import { Plus, Search, Filter, MoreVertical, Droplets, Sun, Thermometer, TrendingUp, Calendar, Sprout } from 'lucide-react';
 import { mockPlants } from '../data/mock';
 
 const MyGarden = () => {
