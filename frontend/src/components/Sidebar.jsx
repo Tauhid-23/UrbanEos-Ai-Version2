@@ -8,7 +8,7 @@ import {
   Database, 
   AlertTriangle, 
   TrendingUp, 
-  Harvest, 
+  Apple, 
   Users, 
   LogOut 
 } from 'lucide-react';
