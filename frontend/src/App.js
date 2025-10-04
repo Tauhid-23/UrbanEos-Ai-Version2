@@ -23,8 +23,8 @@ function App() {
           <Route path="/task-manager" element={<TaskManager />} />
           <Route path="/plant-diagnosis" element={<PlantDiagnosis />} />
           <Route path="/weather-alerts" element={<WeatherAlerts />} />
-          <Route path="/plant-database" element={<Dashboard />} />
-          <Route path="/growth-tracking" element={<Dashboard />} />
+          <Route path="/plant-database" element={<PlantDatabase />} />
+          <Route path="/growth-tracking" element={<GrowthTracking />} />
           <Route path="/harvest-tracker" element={<Dashboard />} />
           <Route path="/community" element={<Dashboard />} />
         </Routes>
