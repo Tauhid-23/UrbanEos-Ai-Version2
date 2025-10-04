@@ -10,7 +10,7 @@ import {
   HelpCircle,
   ChevronRight
 } from 'lucide-react';
-import Sidebar from '../components/Sidebar';
+import Layout from '../components/Layout';
 import MetricCard from '../components/MetricCard';
 import WeatherAlert from '../components/WeatherAlert';
 import TaskItem from '../components/TaskItem';
@@ -31,11 +31,7 @@ const Dashboard = () => {
   const overdueCount = getOverdueTasksCount();
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
-      <Sidebar activeItem="Dashboard" />
-      
-      {/* Main Content */}
+    <Layout title="Dashboard">
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <header className="bg-white border-b border-gray-200 px-8 py-6">
