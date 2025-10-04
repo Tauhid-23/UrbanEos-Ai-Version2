@@ -7,7 +7,7 @@ const Layout = ({ children, title }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Don't show sidebar on landing and setup pages
-  const showSidebar = !['//', '/garden-setup'].includes(location.pathname);
+  const showSidebar = !['/', '/garden-setup'].includes(location.pathname);
 
   if (!showSidebar) {
     return children;
