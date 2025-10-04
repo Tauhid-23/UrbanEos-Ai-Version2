@@ -164,7 +164,7 @@ const Dashboard = () => {
           </div>
         </main>
       </div>
-    </div>
+    </Layout>
   );
 };
 
