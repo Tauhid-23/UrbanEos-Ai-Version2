@@ -9,6 +9,8 @@ import PlantingCalendar from "./pages/PlantingCalendar";
 import TaskManager from "./pages/TaskManager";
 import PlantDiagnosis from "./pages/PlantDiagnosis";
 import WeatherAlerts from "./pages/WeatherAlerts";
+import PlantDatabase from "./pages/PlantDatabase";
+import GrowthTracking from "./pages/GrowthTracking";
 
 function App() {
   return (
