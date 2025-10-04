@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   Home, 
   Sprout, 
@@ -13,19 +14,30 @@ import {
   LogOut 
 } from 'lucide-react';
 
-const Sidebar = ({ activeItem = 'Dashboard' }) => {
+const Sidebar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const menuItems = [
-    { name: 'Dashboard', icon: Home, active: true },
-    { name: 'My Garden', icon: Sprout },
-    { name: 'Planting Calendar', icon: Calendar },
-    { name: 'Task Manager', icon: CheckSquare },
-    { name: 'Plant Diagnosis', icon: Stethoscope },
-    { name: 'Plant Database', icon: Database },
-    { name: 'Weather & Alerts', icon: AlertTriangle },
-    { name: 'Growth Tracking', icon: TrendingUp },
-    { name: 'Harvest Tracker', icon: Apple },
-    { name: 'Community', icon: Users }
+    { name: 'Dashboard', icon: Home, path: '/dashboard' },
+    { name: 'My Garden', icon: Sprout, path: '/my-garden' },
+    { name: 'Planting Calendar', icon: Calendar, path: '/planting-calendar' },
+    { name: 'Task Manager', icon: CheckSquare, path: '/task-manager' },
+    { name: 'Plant Diagnosis', icon: Stethoscope, path: '/plant-diagnosis' },
+    { name: 'Plant Database', icon: Database, path: '/plant-database' },
+    { name: 'Weather & Alerts', icon: AlertTriangle, path: '/weather-alerts' },
+    { name: 'Growth Tracking', icon: TrendingUp, path: '/growth-tracking' },
+    { name: 'Harvest Tracker', icon: Apple, path: '/harvest-tracker' },
+    { name: 'Community', icon: Users, path: '/community' }
   ];
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
+  const handleLogout = () => {
+    navigate('/');
+  };
 
   return (
     <div className="w-64 bg-green-800 text-white h-screen flex flex-col">
@@ -44,14 +56,16 @@ const Sidebar = ({ activeItem = 'Dashboard' }) => {
         <ul className="space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = item.name === activeItem;
+            const isActive = location.pathname === item.path;
             return (
               <li key={item.name}>
-                <button className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-left transition-colors ${
-                  isActive 
-                    ? 'bg-green-700 text-white' 
-                    : 'hover:bg-green-700/50 text-green-100'
-                }`}>
+                <button 
+                  onClick={() => handleNavigation(item.path)}
+                  className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-left transition-colors ${
+                    isActive 
+                      ? 'bg-green-700 text-white' 
+                      : 'hover:bg-green-700/50 text-green-100'
+                  }`}>
                   <Icon className="w-5 h-5" />
                   <span className="text-sm font-medium">{item.name}</span>
                 </button>
@@ -63,7 +77,7 @@ const Sidebar = ({ activeItem = 'Dashboard' }) => {
 
       {/* User Profile */}
       <div className="p-4 border-t border-green-700">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 mb-3">
           <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold">
             AR
           </div>
@@ -73,7 +87,9 @@ const Sidebar = ({ activeItem = 'Dashboard' }) => {
           </div>
         </div>
         
-        <button className="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-left transition-colors hover:bg-green-700/50 text-green-100 mt-3">
+        <button 
+          onClick={handleLogout}
+          className="w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-left transition-colors hover:bg-green-700/50 text-green-100">
           <LogOut className="w-4 h-4" />
           <span className="text-sm">Logout</span>
         </button>
