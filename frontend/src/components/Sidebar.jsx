@@ -23,7 +23,7 @@ const Sidebar = ({ activeItem = 'Dashboard' }) => {
     { name: 'Plant Database', icon: Database },
     { name: 'Weather & Alerts', icon: AlertTriangle },
     { name: 'Growth Tracking', icon: TrendingUp },
-    { name: 'Harvest Tracker', icon: Harvest },
+    { name: 'Harvest Tracker', icon: Apple },
     { name: 'Community', icon: Users }
   ];
 
